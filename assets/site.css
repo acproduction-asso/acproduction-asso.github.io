@@ -105,3 +105,11 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .perdu{min-height:60vh;display:grid;place-content:center;text-align:center;padding:60px 16px}
 footer{border-top:1px solid var(--trait);padding-top:30px;padding-bottom:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:15px;color:var(--doux)}
 footer nav{gap:20px;flex-wrap:wrap;font-size:15px}
+
+/* bouton flottant « Remonter en haut » */
+.haut{position:fixed;right:18px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:var(--touche);color:var(--toucheT);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(10,15,25,.5);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s}
+.haut.vu{opacity:.92;transform:none;pointer-events:auto}.haut:hover{opacity:1}
+.haut svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.haut:focus-visible{outline:3px solid var(--bleuF);outline-offset:3px}
+#contenu:focus{outline:none}
+@media (prefers-reduced-motion:reduce){.haut{transition:none}}
