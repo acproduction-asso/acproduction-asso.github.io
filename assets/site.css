@@ -55,12 +55,13 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .bandes .bd:hover,.bandes .bd:focus-visible{flex-grow:4}
 .bd:hover img,.bd:focus-visible img{opacity:1;transform:scale(1.04)}
 .bd:hover small,.bd:focus-visible small{opacity:1;max-height:60px}
-.bd.son{background:radial-gradient(120% 90% at 50% 40%,#1c3550,#0a1420)}
-.onde{position:absolute;inset:20% 12% 34%;display:flex;align-items:center;gap:4px}
-.onde i{flex:1;background:var(--bleuF);border-radius:3px;opacity:.85;height:20%;animation:onde 1.4s ease-in-out infinite alternate}
-@keyframes onde{to{height:90%}}
+/* Print / Web : diaporama lent en fondu, 7 visuels de 5 s chacun */
+.diapo{position:absolute;inset:0}
+.bd.print::after{background:linear-gradient(0deg,rgba(6,9,14,.94),rgba(6,9,14,.55) 45%,rgba(6,9,14,.1) 80%)}
+.diapo img{animation:diapo 35s linear infinite both}
+@keyframes diapo{0%{opacity:0}4%{opacity:.85}14.3%{opacity:.85}18.3%{opacity:0}100%{opacity:0}}
 @media (max-width:900px){.bandes{flex-direction:column;height:auto}.bd{flex:none;height:150px}.bd small{opacity:1;max-height:60px}.bandes .bd:hover{flex-grow:1}}
-@media (prefers-reduced-motion:reduce){.bd,.bd img{transition:none}.onde i{animation:none;height:55%}}
+@media (prefers-reduced-motion:reduce){.bd,.bd img{transition:none}.diapo img{animation:none;opacity:0}.diapo img:first-child{opacity:.85}}
 /* sections */
 .sec{padding-top:70px;padding-bottom:70px}
 .sec .intro{color:var(--doux);max-width:52ch;margin-top:12px}
@@ -72,7 +73,7 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .tuile h3{font-size:20px;margin-top:12px}
 .tuile p{margin-top:6px;color:var(--doux);font-size:16px;line-height:1.5}
 @media (max-width:900px){.tuiles{grid-template-columns:1fr 1fr}}@media (max-width:560px){.tuiles{grid-template-columns:1fr}}
-.reals{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.reals{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
 .real{display:flex;flex-direction:column}
 .real img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;display:block;background:#0c1118}
 .real h3{font:500 24px/1.15 "Newsreader Variable",serif;margin-top:14px}
