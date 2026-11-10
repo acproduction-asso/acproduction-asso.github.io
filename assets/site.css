@@ -1,8 +1,6 @@
 @font-face{font-family:'Familjen Grotesk Variable';font-style:normal;font-display:swap;font-weight:400 700;src:url(polices/familjen-grotesk-latin-wght-normal.woff2) format('woff2-variations');unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Familjen Grotesk Variable';font-style:normal;font-display:swap;font-weight:400 700;src:url(polices/familjen-grotesk-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Newsreader Variable';font-style:normal;font-display:swap;font-weight:200 800;src:url(polices/newsreader-latin-wght-normal.woff2) format('woff2-variations');unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Newsreader Variable';font-style:normal;font-display:swap;font-weight:200 800;src:url(polices/newsreader-latin-ext-wght-normal.woff2) format('woff2-variations');unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-/* ===== ACP — même socle que RégieLive, identité propre : bleu ACP, titres à empattements ===== */
+/* ===== ACP — même socle que RégieLive, identité propre : bleu ACP, titres en Familjen Grotesk ===== */
 :root{--fond:#f3f5f7;--carte:#ffffff;--encre:#121822;--doux:#566173;--trait:#dde2e8;--panneau:#e6eaef;--bleu:#0f7fa8;--bleuF:#179ecc;--touche:#1b2330;--toucheT:#f3f6f9}
 @media (prefers-color-scheme:dark){:root:not([data-theme="clair"]){--fond:#10151d;--carte:#18202b;--encre:#eef2f7;--doux:#a3adbd;--trait:#2a3340;--panneau:#1f2834;--bleu:#4cc0ea;--touche:#2a3442}}
 :root[data-theme="sombre"]{--fond:#10151d;--carte:#18202b;--encre:#eef2f7;--doux:#a3adbd;--trait:#2a3340;--panneau:#1f2834;--bleu:#4cc0ea;--touche:#2a3442}
@@ -16,7 +14,7 @@ a{color:inherit;text-underline-offset:4px}
 .l{padding-left:clamp(16px,5vw,56px);padding-right:clamp(16px,5vw,56px)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--bleuF);color:#fff;padding:8px 12px;border-radius:6px;z-index:10}.skip:focus{left:8px}
 :focus-visible{outline:3px solid var(--bleuF);outline-offset:3px}
-h1,h2{font-family:"Newsreader Variable",Georgia,serif;font-weight:500;letter-spacing:-.015em}
+h1,h2{font-family:"Familjen Grotesk Variable",system-ui,sans-serif;font-weight:700;letter-spacing:-.03em}
 h2{font-size:clamp(32px,3.6vw,50px);line-height:1.08}
 .a-completer{background:#ffe58a;color:#3a2c00;padding:1px 5px;border-radius:4px;font-weight:600;font-family:"Familjen Grotesk Variable"}
 /* en-tête */
@@ -49,7 +47,7 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .bd img,.bd video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity .4s,transform 6s ease}
 .bd::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,9,14,.85),rgba(6,9,14,0) 55%)}
 .bd span{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}
-.bd b{display:block;font:500 clamp(20px,1.8vw,28px)/1.1 "Newsreader Variable",serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bd b{display:block;font:650 clamp(20px,1.8vw,28px)/1.1 "Familjen Grotesk Variable",system-ui,sans-serif;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bd small{display:block;font-size:14.5px;opacity:0;max-height:0;transition:opacity .4s,max-height .4s;color:#dfe6ee}
 .bandes:hover .bd,.bandes:focus-within .bd{flex-grow:1}
 .bandes .bd:hover,.bandes .bd:focus-visible{flex-grow:4}
@@ -73,13 +71,28 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .tuile h3{font-size:20px;margin-top:12px}
 .tuile p{margin-top:6px;color:var(--doux);font-size:16px;line-height:1.5}
 @media (max-width:900px){.tuiles{grid-template-columns:1fr 1fr}}@media (max-width:560px){.tuiles{grid-template-columns:1fr}}
-.reals{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.real{display:flex;flex-direction:column}
-.real img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;display:block;background:#0c1118}
-.real h3{font:500 24px/1.15 "Newsreader Variable",serif;margin-top:14px}
-.real p{color:var(--doux);font-size:16px;margin-top:6px}
-.real a{margin-top:10px;font-weight:700;font-size:15px}
-@media (max-width:900px){.reals{grid-template-columns:1fr}}
+/* réalisations : une vidéo à la une, une seconde et la carte de la chaîne */
+.yta{display:grid;grid-template-columns:1.55fr 1fr;gap:24px;margin-top:30px}
+.vcard{position:relative;display:block;border-radius:16px;overflow:hidden;color:#fff;text-decoration:none;background:#0c1118;aspect-ratio:16/9}
+.vcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.vcard:hover img,.vcard:focus-visible img{transform:scale(1.03)}
+.vcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,9,14,.96),rgba(6,9,14,.72) 32%,rgba(6,9,14,0) 68%)}
+.vcard .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:1;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:transform .3s}
+.vcard:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.vcard .play::before{content:"";margin-left:5px;border-left:20px solid #121822;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.vcard .txt{position:absolute;left:22px;right:22px;bottom:18px;z-index:1}
+.vcard .tag{display:inline-block;font:600 12px/1 "Familjen Grotesk Variable";letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:5px;background:rgba(255,255,255,.16);margin:0 6px 6px 0}
+.vcard h3{font:700 clamp(20px,2vw,28px)/1.15 "Familjen Grotesk Variable";margin-top:4px;letter-spacing:-.015em}
+.vcard p{font-size:15px;color:#d5dde7;margin-top:4px}
+.side{display:grid;gap:24px;grid-template-rows:auto 1fr}
+.side .vcard .play{width:52px;height:52px}.side .vcard .play::before{border-left-width:15px;border-top-width:9px;border-bottom-width:9px}
+.chaine{border-radius:16px;background:var(--carte);border:1px solid var(--trait);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.chaine b{font:700 20px/1.2 "Familjen Grotesk Variable"}
+.chaine p{color:var(--doux);font-size:15px}
+.btnyt{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:11px 16px;border-radius:10px;background:#d6202a;color:#fff;font:600 15px/1 "Familjen Grotesk Variable";text-decoration:none}
+.btnyt i{width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+@media (max-width:900px){.yta{grid-template-columns:1fr}.vcard p{display:none}.vcard .play,.side .vcard .play{top:34%;width:48px;height:48px}.vcard .play::before{border-left-width:14px;border-top-width:8px;border-bottom-width:8px}}
+@media (prefers-reduced-motion:reduce){.vcard img,.vcard .play{transition:none}}
 /* RégieLive : bande sombre */
 .rl{background:#0f141c;color:#eef2f7;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .rl .marque{font:700 20px/1 "Familjen Grotesk Variable"}.rl .marque b{color:#e7a93b}
@@ -87,13 +100,13 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .rl p{color:#a9b3c2;margin-top:12px;max-width:44ch}
 .rl .btn{background:#e7a93b;color:#1a1408;margin-top:22px}
 .ecr{background:#232a35;border-radius:14px;padding:10px 10px 12px;box-shadow:0 0 0 3px #d93636,0 30px 60px -30px rgba(217,54,54,.5)}
-.ecr div{aspect-ratio:16/9;border-radius:8px;background:radial-gradient(120% 90% at 50% 40%,#1d2a44,#0d1220);display:grid;place-items:center;text-align:center;padding:8%;color:#f6f1e4;font:500 clamp(20px,2vw,28px)/1.3 "Newsreader Variable",serif}
+.ecr div{aspect-ratio:16/9;border-radius:8px;background:radial-gradient(120% 90% at 50% 40%,#1d2a44,#0d1220);display:grid;place-items:center;text-align:center;padding:8%;color:#f6f1e4;font:600 clamp(20px,2vw,28px)/1.3 "Familjen Grotesk Variable",system-ui,sans-serif}
 .ecr small{display:flex;align-items:center;gap:8px;color:#c6cdd8;font-size:14px;margin-top:8px}.ecr small::before{content:"";width:10px;height:10px;border-radius:50%;background:#d93636}
 @media (max-width:900px){.rl{grid-template-columns:1fr}}
 /* soutenir et contact */
 .deux{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
 .boite{background:var(--carte);border-radius:16px;padding:28px}
-.boite h3{font:500 28px/1.1 "Newsreader Variable",serif}
+.boite h3{font:700 28px/1.1 "Familjen Grotesk Variable",system-ui,sans-serif;letter-spacing:-.015em}
 .boite p{color:var(--doux);margin-top:10px}
 .boite .btn{margin-top:18px}
 .reseaux{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-weight:600}
