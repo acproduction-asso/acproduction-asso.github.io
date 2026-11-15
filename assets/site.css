@@ -64,13 +64,32 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 .sec{padding-top:70px;padding-bottom:70px}
 .sec .intro{color:var(--doux);max-width:52ch;margin-top:12px}
 .blanc{background:var(--carte)}
-.tuiles{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--trait);border:1px solid var(--trait);border-radius:16px;overflow:hidden}
-.tuile{background:var(--carte);padding:26px}
-.blanc .tuile{background:var(--fond)}
-.tuile svg{width:30px;height:30px;fill:none;stroke:var(--bleu);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.tuile h3{font-size:20px;margin-top:12px}
-.tuile p{margin-top:6px;color:var(--doux);font-size:16px;line-height:1.5}
-@media (max-width:900px){.tuiles{grid-template-columns:1fr 1fr}}@media (max-width:560px){.tuiles{grid-template-columns:1fr}}
+/* Services : conducteur de l’événement (avant, le jour J, après) puis « toute l’année » */
+.fil{margin-top:48px;position:relative;--col:150px;--live:#e5484d}
+.fil::before{content:"";position:absolute;left:calc(var(--col) + 21px);top:14px;bottom:44px;width:2px;background:var(--trait)}
+.fil-moment{display:grid;grid-template-columns:var(--col) 1fr;column-gap:44px;padding-bottom:38px;position:relative}
+.fil-moment::before{content:"";position:absolute;left:calc(var(--col) + 16px);top:11px;width:12px;height:12px;border-radius:50%;background:var(--carte);border:2px solid var(--bleu)}
+.fil-quand{color:var(--doux);font-size:16px;font-weight:600;padding-top:4px;text-align:right}
+.fil-corps{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:8px 40px;align-items:baseline}
+.fil-corps h3{font-size:clamp(24px,2.4vw,32px);line-height:1.15;letter-spacing:-.02em;font-weight:700}
+.fil-corps p{color:var(--doux);font-size:17px;line-height:1.55;max-width:46ch}
+.fil-jour::before{background:var(--live);border-color:var(--live);box-shadow:0 0 0 6px color-mix(in srgb,var(--live) 22%,transparent)}
+.fil-jour .fil-quand{color:var(--live)}
+.annee{display:grid;grid-template-columns:150px 1fr;column-gap:44px;border-top:1px solid var(--trait);padding-top:30px;margin-top:6px}
+.annee .fil-quand{padding-top:2px}
+.annee-l{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 36px}
+.annee-l h3{font-size:21px;letter-spacing:-.01em}
+.annee-l p{margin-top:6px;color:var(--doux);font-size:16px;line-height:1.5}
+.annee-l a{color:var(--bleu);font-weight:600;white-space:nowrap}
+@media (max-width:820px){
+ .fil{--col:0px}.fil::before{left:5px}
+ .fil-moment{grid-template-columns:1fr;padding-left:30px;column-gap:0}
+ .fil-moment::before{left:0}
+ .fil-quand{text-align:left;padding-top:0;margin-bottom:4px}
+ .fil-corps{grid-template-columns:1fr}
+ .annee{grid-template-columns:1fr}.annee .fil-quand{margin-bottom:14px}
+ .annee-l{grid-template-columns:1fr}
+}
 /* réalisations : une vidéo à la une, une seconde et la carte de la chaîne */
 .yta{display:grid;grid-template-columns:1.55fr 1fr;gap:24px;margin-top:30px}
 .vcard{position:relative;display:block;border-radius:16px;overflow:hidden;color:#fff;text-decoration:none;background:#0c1118;aspect-ratio:16/9}
@@ -106,6 +125,8 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 /* soutenir et contact */
 .deux{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
 .boite{background:var(--carte);border-radius:16px;padding:28px}
+.boite{min-width:0}.boite .btn{max-width:100%;overflow-wrap:anywhere}
+@media (max-width:420px){.boite{padding:22px}}
 .boite h3{font:700 28px/1.1 "Familjen Grotesk Variable",system-ui,sans-serif;letter-spacing:-.015em}
 .boite p{color:var(--doux);margin-top:10px}
 .boite .btn{margin-top:18px}
@@ -127,3 +148,5 @@ footer nav{gap:20px;flex-wrap:wrap;font-size:15px}
 .haut:focus-visible{outline:3px solid var(--bleuF);outline-offset:3px}
 #contenu:focus{outline:none}
 @media (prefers-reduced-motion:reduce){.haut{transition:none}}
+/* très petits téléphones (320–360 px) : l’en-tête tient sur une ligne */
+@media (max-width:360px){header{gap:8px}header nav{gap:6px}.theme button{padding:6px 6px;font-size:12px}.menu-m summary{padding:8px 9px}}
