@@ -56,8 +56,8 @@ nav{display:flex;gap:24px;align-items:center;font-size:16px}nav a{text-decoratio
 /* Print / Web : diaporama lent en fondu, 7 visuels de 5 s chacun */
 .diapo{position:absolute;inset:0}
 .bd.print::after{background:linear-gradient(0deg,rgba(6,9,14,.94),rgba(6,9,14,.55) 45%,rgba(6,9,14,.1) 80%)}
-.diapo img{animation:diapo 35s linear infinite both}
-@keyframes diapo{0%{opacity:0}4%{opacity:.85}14.3%{opacity:.85}18.3%{opacity:0}100%{opacity:0}}
+.diapo img{animation:diapo 50s linear infinite both}
+@keyframes diapo{0%{opacity:0}3%{opacity:.85}10%{opacity:.85}13%{opacity:0}100%{opacity:0}}
 @media (max-width:900px){.bandes{flex-direction:column;height:auto}.bd{flex:none;height:150px}.bd small{opacity:1;max-height:60px}.bandes .bd:hover{flex-grow:1}}
 @media (prefers-reduced-motion:reduce){.bd,.bd img{transition:none}.diapo img{animation:none;opacity:0}.diapo img:first-child{opacity:.85}}
 /* sections */
@@ -150,3 +150,9 @@ footer nav{gap:20px;flex-wrap:wrap;font-size:15px}
 @media (prefers-reduced-motion:reduce){.haut{transition:none}}
 /* très petits téléphones (320–360 px) : l’en-tête tient sur une ligne */
 @media (max-width:360px){header{gap:8px}header nav{gap:6px}.theme button{padding:6px 6px;font-size:12px}.menu-m summary{padding:8px 9px}}
+
+/* Travaillons ensemble : photo de l’équipe à côté des deux encadrés */
+.deux.avec-photo{grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr)}
+.equipe{margin:0;border-radius:16px;overflow:hidden;position:relative;min-height:240px}
+.equipe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
+@media (max-width:900px){.deux.avec-photo{grid-template-columns:1fr}.equipe{height:300px}}
